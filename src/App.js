@@ -1,21 +1,21 @@
-import { Routes, Route, useLocation } from "react-router-dom";
+import { Routes, Route, useLocation } from 'react-router-dom';
 
-import Navbar from "./components/Navbar";
+import Navbar from './components/Navbar';
 
-import Home from "./pages/Home";
-import Asset from "./pages/Asset";
-import Input from "./pages/Input";
-import NotFound from "./pages/NotFound";
+import Home from './pages/Home';
+import Asset from './pages/Asset';
+import Input from './pages/Input';
+import NotFound from './pages/NotFound';
 
-import Login from "./pages/Login";
-import Register from "./pages/Register";
+import Login from './pages/Login';
+import Register from './pages/Register';
 
 function App() {
   const location = useLocation();
 
   const pathname = location.pathname;
 
-  const isLogin = pathname.includes("login") || pathname.includes("register");
+  const isLogin = pathname.includes('login') || pathname.includes('register');
   return (
     <div className={`app`}>
       {!isLogin && <Navbar />}

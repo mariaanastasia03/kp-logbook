@@ -1,41 +1,42 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect } from 'react';
 // import authSvg from '../assets/login.svg';
-import { ToastContainer, toast } from "react-toastify";
-import { Link, Redirect, useNavigate } from "react-router-dom";
+import { ToastContainer, toast } from 'react-toastify';
+import { Link, Redirect, useNavigate } from 'react-router-dom';
 
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faUser, faLock } from "@fortawesome/free-solid-svg-icons";
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faUser, faLock } from '@fortawesome/free-solid-svg-icons';
 
 const LoginCard = () => {
-  const navigate = useNavigate();
-  const [isLoading, setIsLoading] = useState(false);
-  //   const navigate = useNavigate();
-  //   useEffect(() => {
-  //     if (isAuth() && isAuth().role === "admin") {
-  //       navigate("/admin");
-  //     } else if
-  //      (isAuth()) {
-  //       navigate("/beranda");
-  //     }
-  //   });
+  // const [isLoading, setIsLoading] = useState(false);
+  // const navigate = useNavigate();
+  // useEffect(() => {
+  //   if (email() == 'admin' && password1() == 'admin') {
+  //     navigate('/');
+  //   } else {
+  //     toast.error('User not found.');
+  //   }
+  // });
 
   const [formData, setFormData] = useState({
-    email: "",
-    password1: "",
-    textChange: "Sign In",
+    email: '',
+    password1: '',
+    textChange: 'Sign In',
   });
   const { email, password1, textChange } = formData;
   const handleChange = (text) => (e) => {
     setFormData({ ...formData, [text]: e.target.value });
   };
   const handleSubmit = (e) => {
-    // if (!email) {
-    //   toast.error("ANDA SALAH");
-    // } else if (!password1) {
-    //   toast.error("SALAH JUGA");
-    // } else {
-    //   navigate("/admin/operator/test");
-    // }
+    e.preventDefault();
+    if (email === 'admin' && password1 === 'admin123') {
+      window.location.href = '/';
+    } else if (!email) {
+      toast.error('User not found.');
+    } else if (!password1) {
+      toast.error('Wrong password.');
+    } else {
+      toast.error('User not found.');
+    }
   };
   return (
     <form
@@ -57,7 +58,7 @@ const LoginCard = () => {
         <input
           className=" text-gray-500 placeholder:text-gray-400 my-4 w-full -translate-x-2 rounded-r-xl bg-white-normal p-3 text-base focus:outline-none "
           placeholder="Username"
-          onChange={handleChange("email")}
+          onChange={handleChange('email')}
           value={email}
         />
       </div>
@@ -70,10 +71,10 @@ const LoginCard = () => {
           className="z-10 rounded-full bg-slate-600 p-3"
         />
         <input
-          type={"password"}
+          type={'password'}
           className=" text-gray-500 placeholder:text-gray-400 my-4 w-full -translate-x-2 rounded-r-xl bg-white-normal p-3 text-base focus:outline-none "
           placeholder="Enter your password"
-          onChange={handleChange("password1")}
+          onChange={handleChange('password1')}
           value={password1}
         />
       </div>

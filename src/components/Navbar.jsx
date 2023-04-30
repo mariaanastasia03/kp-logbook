@@ -1,16 +1,16 @@
-import { Link, NavLink } from "react-router-dom";
-import React, { useState } from "react";
+import { Link, NavLink } from 'react-router-dom';
+import React, { useState } from 'react';
 
-import logo from "../assets/logo.svg";
-import { CSSTransition } from "react-transition-group";
-import { Divide as Hamburger } from "hamburger-react";
+import logo from '../assets/logo.svg';
+import { CSSTransition } from 'react-transition-group';
+import { Divide as Hamburger } from 'hamburger-react';
 
 const Navbar = () => {
   const [navbar, setNavbar] = useState(false);
 
   //needs to add log out function
   const logOut = () => {
-    window.location.href = "/login";
+    window.location.href = '/login';
   };
 
   return (
@@ -20,7 +20,7 @@ const Navbar = () => {
           <Link to="" className="flex items-center justify-center gap-2">
             <img
               onClick={() => {
-                window.scrollTo({ top: 0, left: 0, behavior: "smooth" });
+                window.scrollTo({ top: 0, left: 0, behavior: 'smooth' });
               }}
               src={logo}
               alt="Logo"
@@ -33,12 +33,12 @@ const Navbar = () => {
         <NavLink
           end
           to=""
-          className={({ isActive }) => (isActive ? "font-bold" : "font-normal")}
+          className={({ isActive }) => (isActive ? 'font-bold' : 'font-normal')}
         >
-          {" "}
+          {' '}
           <li
             onClick={() => {
-              window.scrollTo({ top: 0, left: 0, behavior: "smooth" });
+              window.scrollTo({ top: 0, left: 0, behavior: 'smooth' });
             }}
             className="cursor-pointer px-4 py-5 text-center hover:animate-fade hover:bg-cover hover:bg-center hover:font-bold"
           >
@@ -48,12 +48,12 @@ const Navbar = () => {
         <NavLink
           end
           to="/asset"
-          className={({ isActive }) => (isActive ? "font-bold" : "font-normal")}
+          className={({ isActive }) => (isActive ? 'font-bold' : 'font-normal')}
         >
-          {" "}
+          {' '}
           <li
             onClick={() => {
-              window.scrollTo({ top: 0, left: 0, behavior: "smooth" });
+              window.scrollTo({ top: 0, left: 0, behavior: 'smooth' });
             }}
             className="cursor-pointer px-4 py-5 text-center hover:animate-fade hover:bg-cover hover:bg-center hover:font-bold"
           >
@@ -63,15 +63,29 @@ const Navbar = () => {
         <NavLink
           exact
           to="/input"
-          className={({ isActive }) => (isActive ? "font-bold" : "font-normal")}
+          className={({ isActive }) => (isActive ? 'font-bold' : 'font-normal')}
         >
           <li
             onClick={() => {
-              window.scrollTo({ top: 0, left: 0, behavior: "smooth" });
+              window.scrollTo({ top: 0, left: 0, behavior: 'smooth' });
             }}
             className="transform cursor-pointer px-4 py-5 text-center hover:animate-fade hover:bg-cover hover:bg-center hover:font-bold"
           >
             <span className="hoverUnderlineAnimation pb-1">Input</span>
+          </li>
+        </NavLink>
+        <NavLink
+          exact
+          to="/login"
+          className={({ isActive }) => (isActive ? 'font-bold' : 'font-normal')}
+        >
+          <li
+            onClick={() => {
+              window.scrollTo({ top: 0, left: 0, behavior: 'smooth' });
+            }}
+            className="transform cursor-pointer px-4 py-5 text-center text-red hover:animate-fade hover:bg-cover hover:bg-center hover:font-bold"
+          >
+            <span className="hoverUnderlineAnimation pb-1">Log Out</span>
           </li>
         </NavLink>
       </ul>
@@ -93,7 +107,7 @@ const Navbar = () => {
             <Link
               to=""
               onClick={() => {
-                window.scrollTo({ top: 0, left: 0, behavior: "smooth" });
+                window.scrollTo({ top: 0, left: 0, behavior: 'smooth' });
                 setNavbar(false);
               }}
               className="text-white block px-2 py-4 text-lg"
@@ -104,7 +118,7 @@ const Navbar = () => {
           <li>
             <Link
               onClick={() => {
-                window.scrollTo({ top: 0, left: 0, behavior: "smooth" });
+                window.scrollTo({ top: 0, left: 0, behavior: 'smooth' });
                 setNavbar(false);
               }}
               to="/asset"
@@ -116,13 +130,25 @@ const Navbar = () => {
           <li>
             <Link
               onClick={() => {
-                window.scrollTo({ top: 0, left: 0, behavior: "smooth" });
+                window.scrollTo({ top: 0, left: 0, behavior: 'smooth' });
                 setNavbar(false);
               }}
               to="/input"
               className="text-white block px-2 py-4 text-lg"
             >
               Input
+            </Link>
+          </li>
+          <li>
+            <Link
+              onClick={() => {
+                window.scrollTo({ top: 0, left: 0, behavior: 'smooth' });
+                setNavbar(false);
+              }}
+              to="/login"
+              className="block px-2 py-4 text-lg text-red"
+            >
+              Log Out
             </Link>
           </li>
         </ul>
