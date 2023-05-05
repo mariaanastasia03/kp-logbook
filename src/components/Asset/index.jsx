@@ -1,9 +1,9 @@
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import {
   faMagnifyingGlass,
   faPencil,
   faTrash,
-} from "@fortawesome/free-solid-svg-icons";
+} from '@fortawesome/free-solid-svg-icons';
 
 export default function Index() {
   return (
@@ -40,15 +40,199 @@ export default function Index() {
           </a>
         </div>
 
-        <div>
-          <table className="mt-4 w-full table-auto bg-slate-400">
-            <thead>
+        <div
+          style={{
+            display: 'flex',
+            overflowX: 'auto',
+            WebkitOverflowScrolling: 'touch',
+          }}
+        >
+          <table
+            className="mt-4 w-full table-auto"
+            //style={{ whiteSpace: 'nowrap' }}
+          >
+            <thead className="bg-slate-400">
               <tr>
-                <th className="border border-black">Serial num</th>
-                <th className="border border-black">Type</th>
-                <th className="border border-black">Evidence num</th>
-                <th className="border border-black">Inven num</th>
-                <th className="border border-black">Model asset</th>
+                <th
+                  className="border border-black"
+                  style={{ minWidth: 30, maxWidth: 400 }}
+                >
+                  id
+                </th>
+                <th
+                  className="border border-black"
+                  style={{ minWidth: 150, maxWidth: 400 }}
+                >
+                  Asset Tag
+                </th>
+                <th
+                  className="border border-black"
+                  style={{ minWidth: 200, maxWidth: 400 }}
+                >
+                  Serial Number
+                </th>
+                <th
+                  className="border border-black"
+                  style={{ minWidth: 150, maxWidth: 400 }}
+                >
+                  Inventory Number
+                </th>
+                <th
+                  className="border border-black"
+                  style={{ minWidth: 150, maxWidth: 400 }}
+                >
+                  Evidence Number
+                </th>
+                <th
+                  className="border border-black"
+                  style={{ minWidth: 250, maxWidth: 400 }}
+                >
+                  IMEI
+                </th>
+                <th
+                  className="border border-black"
+                  style={{ minWidth: 250, maxWidth: 400 }}
+                >
+                  Model Asset
+                </th>
+                <th
+                  className="border border-black"
+                  style={{ minWidth: 250, maxWidth: 400 }}
+                >
+                  Asset Class
+                </th>
+                <th
+                  className="border border-black"
+                  style={{ minWidth: 150, maxWidth: 400 }}
+                >
+                  Asset Type
+                </th>
+                <th
+                  className="border border-black"
+                  style={{ minWidth: 200, maxWidth: 400 }}
+                >
+                  Purchase Order (PO)
+                </th>
+                <th
+                  className="border border-black"
+                  style={{ minWidth: 200, maxWidth: 400 }}
+                >
+                  Delivery Order (DO)
+                </th>
+                <th
+                  className="border border-black"
+                  style={{ minWidth: 200, maxWidth: 400 }}
+                >
+                  Status
+                </th>
+                <th
+                  className="border border-black"
+                  style={{ minWidth: 250, maxWidth: 400 }}
+                >
+                  Sub Status
+                </th>
+                <th
+                  className="border border-black"
+                  style={{ minWidth: 200, maxWidth: 400 }}
+                >
+                  NIK
+                </th>
+                <th
+                  className="border border-black"
+                  style={{ minWidth: 300, maxWidth: 400 }}
+                >
+                  User Name
+                </th>
+                <th
+                  className="border border-black"
+                  style={{ minWidth: 300, maxWidth: 400 }}
+                >
+                  Assigned User (txt)
+                </th>
+                <th
+                  className="border border-black"
+                  style={{ minWidth: 200, maxWidth: 400 }}
+                >
+                  Department
+                </th>
+                <th
+                  className="border border-black"
+                  style={{ minWidth: 200, maxWidth: 400 }}
+                >
+                  HostName
+                </th>
+                <th
+                  className="border border-black"
+                  style={{ minWidth: 350, maxWidth: 400 }}
+                >
+                  Location
+                </th>
+                <th
+                  className="border border-black"
+                  style={{ minWidth: 200, maxWidth: 400 }}
+                >
+                  City
+                </th>
+                <th
+                  className="border border-black"
+                  style={{ minWidth: 100, maxWidth: 400 }}
+                >
+                  Deduction Status
+                </th>
+                <th
+                  className="border border-black"
+                  style={{ minWidth: 150, maxWidth: 400 }}
+                >
+                  Info to HR Date
+                </th>
+                <th
+                  className="border border-black"
+                  style={{ minWidth: 300, maxWidth: 400 }}
+                >
+                  Amount Deduct (IDR)
+                </th>
+                <th
+                  className="border border-black"
+                  style={{ minWidth: 200, maxWidth: 400 }}
+                >
+                  Historical JIRA Ticket
+                </th>
+                <th
+                  className="border border-black"
+                  style={{ minWidth: 200, maxWidth: 400 }}
+                >
+                  Historical User Usage
+                </th>
+                <th
+                  className="border border-black"
+                  style={{ minWidth: 150, maxWidth: 400 }}
+                >
+                  Last Update Date
+                </th>
+                <th
+                  className="border border-black"
+                  style={{ minWidth: 250, maxWidth: 400 }}
+                >
+                  Comment
+                </th>
+                <th
+                  className="border border-black"
+                  style={{ minWidth: 75, maxWidth: 400 }}
+                >
+                  Floor
+                </th>
+                <th
+                  className="border border-black"
+                  style={{ minWidth: 150, maxWidth: 400 }}
+                >
+                  Sub Area
+                </th>
+                <th
+                  className="border border-black"
+                  style={{ minWidth: 200, maxWidth: 400 }}
+                >
+                  Type
+                </th>
               </tr>
             </thead>
             <tbody>
