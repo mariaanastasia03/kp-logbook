@@ -94,13 +94,7 @@ const data_asset = db.define(
     },
     Type: {
       type: DataTypes.STRING,
-    },
-    time: {
-      type: DataTypes.ARRAY(DataTypes.STRING),
-    },
-    atributType: {
-      type: DataTypes.ARRAY(DataTypes.STRING),
-    },
+    }
   },
   {
     freezeTableName: true,
