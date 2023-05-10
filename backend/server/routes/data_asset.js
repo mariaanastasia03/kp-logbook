@@ -3,14 +3,12 @@ const dataAsset = require('../controller/data_asset');
 const route = express.Router();
 
 //mapping router
-route.post('/', dataAsset.createMapping);
+route.post('/', dataAsset.createAsset);
 
-route.get('/', dataAsset.getAllMapping);
-route.get('/:category', dataAsset.getMappingByCat);
-route.get('/:id', dataAsset.getMappingByID);
+route.get('/', dataAsset.getAllAsset);
 
-route.put('/:id', dataAsset.editMapping);
+route.put('/:id', dataAsset.editAsset);
 
-route.delete('/:id', dataAsset.deleteMapping);
+route.delete('/:id', dataAsset.deleteAsset);
 
 module.exports = route;
