@@ -4,16 +4,56 @@ import {
   faPencil,
   faTrash,
 } from '@fortawesome/free-solid-svg-icons';
+import DataRow from './dataRow';
+import { useDataAssetContext } from '../../hooks/useDataAssetContext';
+import useFetch from '../../hooks/useFetch';
+import { useSearch } from '../../hooks/useSearch';
+import { useState } from 'react';
+import { useDisplayContext } from '../../hooks/useDisplayContext';
+import Pagination from './pagination';
+//import { use } from '../../../../backend/server/routes/data_asset';
+//import { useEffect } from 'react';
 
 export default function Index() {
+  const { assets, dispatch } = useDataAssetContext();
+  const { notify, isPending, error, setLoading, setError } =
+    useDisplayContext();
+  const url = 'http://localhost:3100/api/asset';
+  useFetch({
+    url,
+    dispatch,
+    setError,
+    setLoading,
+    type: 'GET_ASSETS',
+  });
+  console.log(assets);
+
+  //Pagination
+  const [currentPage, setCurrentPage] = useState(1);
+  const [postPerPage] = useState(1500);
+
+  const indexOfLastTask = currentPage * postPerPage;
+  const indexOfFirstTask = indexOfLastTask - postPerPage;
+  const currentTask = assets && assets.slice(indexOfFirstTask, indexOfLastTask);
+  // assets.sort((a, b) => a.id - b.id) &&
+  // assets.sort((a, b) => a.id - b.id).slice(indexOfFirstTask, indexOfLastTask);
+
+  const { searchResult, getSearchTerm, inputEl, searchTerm } =
+    useSearch(currentTask);
+  const listTasks = searchTerm < 1 ? currentTask : searchResult;
+
+  const paginate = (pageNumber) => setCurrentPage(pageNumber);
   return (
     <div className=" overflow-hidden">
       <div className="mt-24 px-12">
         <div className="flex gap-2">
           <div className="flex w-[500px] items-center justify-center rounded-xl border bg-slate-400 px-3 align-middle ">
             <input
+              ref={inputEl}
+              type="test"
+              value={searchTerm}
               className=" text-gray-500 w-full bg-transparent text-base focus:outline-none "
-              onChange={(e) => {}}
+              onChange={getSearchTerm}
             />
             <FontAwesomeIcon
               icon={faMagnifyingGlass}
@@ -39,7 +79,15 @@ export default function Index() {
             />
           </a>
         </div>
-
+        <div className="justify-center">
+          {assets && (
+            <Pagination
+              postPerPage={postPerPage}
+              totalPost={assets.length}
+              paginate={paginate}
+            />
+          )}
+        </div>
         <div
           style={{
             display: 'flex',
@@ -235,14 +283,15 @@ export default function Index() {
                 </th>
               </tr>
             </thead>
-            <tbody>
-              <tr>
-                <td className="border border-black">1</td>
-                <td className="border border-black">Kursi</td>
-                <td className="border border-black">Furniture</td>
-                <td className="border border-black">10</td>
-                <td className="border border-black">Baik</td>
-              </tr>
+            <tbody className="border border-black">
+              {listTasks &&
+                listTasks
+                  .sort((a, b) => a.id - b.id)
+                  .map((asset) => (
+                    <>
+                      <DataRow asset={asset} />
+                    </>
+                  ))}
             </tbody>
           </table>
         </div>

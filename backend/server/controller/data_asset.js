@@ -1,9 +1,38 @@
 const data_asset = require('../model/data_asset');
 
 exports.createAsset = async (req, res) => {
-  const { AssetTag, SerialNumber, InventoryNumber, EvidenceNumber, IMEI, ModelAsset, AssetClass, AssetType, PurchaseOrder, DeliveryOrder, Status, SubStatus, NIK, UserName, AssignedUser, Departement, HostName, Location, City, DeductioStatus, InfoToHRDate, AmountDeductIDR, HistoricalJIRATicket, LastUpdateDate, Comment, Floor, SubArea, Type } = req.body
+  const {
+    AssetTag,
+    SerialNumber,
+    InventoryNumber,
+    EvidenceNumber,
+    IMEI,
+    ModelAsset,
+    AssetClass,
+    AssetType,
+    PurchaseOrder,
+    DeliveryOrder,
+    Status,
+    SubStatus,
+    NIK,
+    UserName,
+    AssignedUser,
+    Departement,
+    HostName,
+    Location,
+    City,
+    DeductioStatus,
+    InfoToHRDate,
+    AmountDeductIDR,
+    HistoricalJIRATicket,
+    LastUpdateDate,
+    Comment,
+    Floor,
+    SubArea,
+    Type,
+  } = req.body;
   try {
-    await facility.create({
+    await data_asset.create({
       AssetTag: AssetTag,
       SerialNumber: SerialNumber,
       InventoryNumber: InventoryNumber,
@@ -31,19 +60,20 @@ exports.createAsset = async (req, res) => {
       Comment: Comment,
       Floor: Floor,
       SubArea: SubArea,
-      Type: Type
-    })
+      Type: Type,
+    });
     res.status(200).json({
       success: true,
       message: 'New data asset added!',
-      data: req.body
-    })
+      data: req.body,
+    });
   } catch (error) {
     res.status(400).json({
-      message: error
-    })
+      message: error,
+    });
+    console.log(error);
   }
-}
+};
 
 exports.getAllAsset = async (req, res) => {
   try {
@@ -61,77 +91,109 @@ exports.getAllAsset = async (req, res) => {
 };
 
 exports.editAsset = async (req, res) => {
-  const id = req.params.id
-  const { AssetTag, SerialNumber, InventoryNumber, EvidenceNumber, IMEI, ModelAsset, AssetClass, AssetType, PurchaseOrder, DeliveryOrder, Status, SubStatus, NIK, UserName, AssignedUser, Departement, HostName, Location, City, DeductioStatus, InfoToHRDate, AmountDeductIDR, HistoricalJIRATicket, LastUpdateDate, Comment, Floor, SubArea, Type } = req.body
+  const id = req.params.id;
+  const {
+    AssetTag,
+    SerialNumber,
+    InventoryNumber,
+    EvidenceNumber,
+    IMEI,
+    ModelAsset,
+    AssetClass,
+    AssetType,
+    PurchaseOrder,
+    DeliveryOrder,
+    Status,
+    SubStatus,
+    NIK,
+    UserName,
+    AssignedUser,
+    Departement,
+    HostName,
+    Location,
+    City,
+    DeductioStatus,
+    InfoToHRDate,
+    AmountDeductIDR,
+    HistoricalJIRATicket,
+    LastUpdateDate,
+    Comment,
+    Floor,
+    SubArea,
+    Type,
+  } = req.body;
   try {
-    const updated = await facility.update({
-      AssetTag: AssetTag,
-      SerialNumber: SerialNumber,
-      InventoryNumber: InventoryNumber,
-      EvidenceNumber: EvidenceNumber,
-      IMEI: IMEI,
-      ModelAsset: ModelAsset,
-      AssetClass: AssetClass,
-      AssetType: AssetType,
-      PurchaseOrder: PurchaseOrder,
-      DeliveryOrder: DeliveryOrder,
-      Status: Status,
-      SubStatus: SubStatus,
-      NIK: NIK,
-      UserName: UserName,
-      AssignedUser: AssignedUser,
-      Departement: Departement,
-      HostName: HostName,
-      Location: Location,
-      City: City,
-      DeductioStatus: DeductioStatus,
-      InfoToHRDate: InfoToHRDate,
-      AmountDeductIDR: AmountDeductIDR,
-      HistoricalJIRATicket: HistoricalJIRATicket,
-      LastUpdateDate: LastUpdateDate,
-      Comment: Comment,
-      Floor: Floor,
-      SubArea: SubArea,
-      Type: Type
-    }, {
-      where: {
-        id: id
+    const updated = await facility.update(
+      {
+        AssetTag: AssetTag,
+        SerialNumber: SerialNumber,
+        InventoryNumber: InventoryNumber,
+        EvidenceNumber: EvidenceNumber,
+        IMEI: IMEI,
+        ModelAsset: ModelAsset,
+        AssetClass: AssetClass,
+        AssetType: AssetType,
+        PurchaseOrder: PurchaseOrder,
+        DeliveryOrder: DeliveryOrder,
+        Status: Status,
+        SubStatus: SubStatus,
+        NIK: NIK,
+        UserName: UserName,
+        AssignedUser: AssignedUser,
+        Departement: Departement,
+        HostName: HostName,
+        Location: Location,
+        City: City,
+        DeductioStatus: DeductioStatus,
+        InfoToHRDate: InfoToHRDate,
+        AmountDeductIDR: AmountDeductIDR,
+        HistoricalJIRATicket: HistoricalJIRATicket,
+        LastUpdateDate: LastUpdateDate,
+        Comment: Comment,
+        Floor: Floor,
+        SubArea: SubArea,
+        Type: Type,
       },
-      returning: true,
-      plain: true
-    })
+      {
+        where: {
+          id: id,
+        },
+        returning: true,
+        plain: true,
+      }
+    );
 
     res.status(200).json({
       success: true,
       message: 'Facility updated!',
-      data: updated
-    })
+      data: updated,
+    });
   } catch (error) {
     res.status(400).json({
-      message: error
-    })
+      message: error,
+    });
   }
-}
+};
 
 exports.deleteAsset = async (req, res) => {
   const id = req.params.id;
   try {
     const deleted = await facility.destroy({
       where: {
-        id: id
+        id: id,
       },
       returning: true,
-      plain: true
-    })
+      plain: true,
+    });
 
     res.status(200).json({
       success: true,
       message: 'data asset deleted!',
-      data: deleted
-    })
+      data: deleted,
+    });
   } catch (error) {
     res.status(400).json({
-      message: error
-    })
+      message: error,
+    });
   }
-}
+};

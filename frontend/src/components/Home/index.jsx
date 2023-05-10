@@ -1,34 +1,27 @@
 import React from 'react';
 import './styles.css';
 
+import ItemCard from './ItemCard';
+
+const items = [
+  { nama: 'Total Device', number: 1000 },
+  { nama: 'Total Device', number: 1000 },
+  { nama: 'Total Device', number: 1000 },
+  { nama: 'Total Device', number: 1000 },
+  { nama: 'Total Device', number: 1000 },
+  { nama: 'Total Device', number: 1000 },
+  { nama: 'Total Device', number: 1000 },
+  { nama: 'Total Device', number: 1000 },
+  { nama: 'Total Device', number: 1000 },
+];
+
 export default function Index() {
   return (
-    <div className="center">
-      <div className="container">
-        <div className="box total-device">
-          Total Device <br />
-          1000
-        </div>
-        <div className="box total-assets">
-          Total Assets <br />
-          1000
-        </div>
-        <div className="box available">
-          In Stock <br />
-          1000
-        </div>
-        <div className="box used">
-          In Use <br />
-          1000
-        </div>
-        <div className="box repairing">
-          Missing <br />
-          1000
-        </div>
-        <div className="box broken">
-          Retired (or consumed) <br />
-          1000
-        </div>
+    <div className="center flex items-center justify-center">
+      <div className="mt-[15vh] flex flex-col flex-wrap items-center justify-center gap-3 align-middle md:flex-row">
+        {items.map((item, index) => {
+          return <ItemCard title={item.nama} number={item.number} />;
+        })}
       </div>
     </div>
   );

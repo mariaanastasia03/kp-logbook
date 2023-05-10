@@ -7,9 +7,13 @@ const data_asset = db.define(
   'data_asset',
   {
     //tulis berdasarkan kolom tabel di postgresql, dari assettag sampe habis
+    id: {
+      type: DataTypes.INTEGER,
+      autoIncrement: true,
+      primaryKey: true,
+    },
     AssetTag: {
       type: DataTypes.STRING,
-      primaryKey: true,
     },
     SerialNumber: {
       type: DataTypes.STRING,
@@ -94,10 +98,11 @@ const data_asset = db.define(
     },
     Type: {
       type: DataTypes.STRING,
-    }
+    },
   },
   {
     freezeTableName: true,
+    timestamps: false,
   }
 );
 
