@@ -1,3 +1,5 @@
+import { useState } from 'react';
+
 export const useHandleAdd = ({
   url,
   data,
@@ -33,11 +35,13 @@ export const useHandleAdd = ({
     }
   };
 
+  const [inputValue, setInputValue] = useState('');
   const handleAdd = async (e) => {
     e.stopPropagation();
     e.preventDefault();
     await add();
+    setInputValue('');
   };
 
-  return { add, handleAdd };
+  return { add, handleAdd, inputValue, setInputValue };
 };

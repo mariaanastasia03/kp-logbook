@@ -1,7 +1,7 @@
 import React from 'react';
 import './styles.css';
 
-import ItemCard from './ItemCard';
+import ItemCard from './itemCard';
 
 const items = [
   { nama: 'Total Device', number: 1000 },
