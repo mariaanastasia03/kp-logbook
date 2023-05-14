@@ -236,7 +236,7 @@ export default function Index() {
         <div className=" w-full text-center">
           <button
             type="submit"
-            onClick={handleSubmit}
+            //onClick={}
             className="  my-4   w-full scale-100 transform rounded-lg bg-slate-400  px-10 py-2 text-center transition duration-300 hover:opacity-75 "
           >
             <h1 className="  rounded-2xl bg-slate-400 text-xl font-bold">

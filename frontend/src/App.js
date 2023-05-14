@@ -9,6 +9,7 @@ import NotFound from './pages/NotFound';
 
 import Login from './pages/Login';
 import Register from './pages/Register';
+import Update from './pages/Update';
 
 function App() {
   const location = useLocation();
@@ -27,6 +28,7 @@ function App() {
 
           <Route path="/login" element={<Login />} />
           <Route path="/register" element={<Register />} />
+          <Route path="/update" element={<Update />} />
 
           {/* 404 */}
           <Route path="*" element={<NotFound />} />
