@@ -1,3 +1,5 @@
+import { Link, NavLink } from 'react-router-dom';
+
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import {
   faMagnifyingGlass,
@@ -16,6 +18,7 @@ import Pagination from './pagination';
 //import { useEffect } from 'react';
 
 export default function Index() {
+  const [navbar, setNavbar] = useState(false);
   const { assets, dispatch } = useDataAssetContext();
   const { notify, isPending, error, setLoading, setError } =
     useDisplayContext();
@@ -56,12 +59,14 @@ export default function Index() {
               className=" text-gray-500 w-full bg-transparent text-base focus:outline-none "
               onChange={getSearchTerm}
             />
-            <FontAwesomeIcon
-              icon={faMagnifyingGlass}
-              color="Black"
-              size="lg"
-              className="p-2"
-            />
+            <Link onClick={() => {}} to="/update">
+              <FontAwesomeIcon
+                icon={faMagnifyingGlass}
+                color="Black"
+                size="lg"
+                className="p-2"
+              />
+            </Link>
           </div>
           <a className=" cursor-pointer">
             <FontAwesomeIcon
